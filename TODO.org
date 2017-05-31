@@ -1,0 +1,6 @@
+* Wed 2017-05-31
+** TODO Create new project
+** TODO Include Alamofire library
+** TODO Implement data fetching
+** TODO Implement visualization
+** TODO Implement user login
