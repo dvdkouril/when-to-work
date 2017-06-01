@@ -12,4 +12,11 @@ import Alamofire
 
 class DayBar {
     
+    func requestData() {
+        //Alamofire.requ
+        Alamofire.request("https://www.rescuetime.com/anapi/data").responseJSON { response in
+            print(response.response)
+        }
+    }
+    
 }
