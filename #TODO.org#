@@ -1,0 +1,19 @@
+* Sat 2017-06-03
+** TODO Implement data fetching
+*** TODO Get sample data to see the JSON format
+*** TODO Parse sample data with SwiftyJSON
+** TODO Implement visualization
+** TODO Implement user login
+
+* Thu 2017-06-01
+** TODO Implement data fetching
+** TODO Implement visualization
+** TODO Implement user login
+
+
+* Wed 2017-05-31
+** DONE Create new project
+** DONE Include Alamofire library
+** TODO Implement data fetching
+** TODO Implement visualization
+** TODO Implement user login

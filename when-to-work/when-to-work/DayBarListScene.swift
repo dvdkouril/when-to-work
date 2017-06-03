@@ -18,6 +18,6 @@ class DayBarListScene: SKScene{
     }
     
     override func update(_ currentTime: TimeInterval) {
-        print("DayBarListScene::update() called")
+        //print("DayBarListScene::update() called")
     }
 }
