@@ -12,11 +12,24 @@ import Alamofire
 
 class DayBar {
     
+    var isLoaded = false
+    
     func requestData() {
-        //Alamofire.requ
-        Alamofire.request("https://www.rescuetime.com/anapi/data").responseJSON { response in
+        let params = ["key"             : "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe",
+                      "format"          : "json",
+                      "perspective"     : "interval",
+                      "restrict_begin"  : "2017-05-29",
+                      "restrict_end"    : "2017-05-30",
+                      "resolution_time" : "minute"]
+        
+        Alamofire.request("https://www.rescuetime.com/anapi/data",
+                          parameters: params).responseJSON { response in
             print(response.response)
         }
+    }
+    
+    func drawBar() {
+        
     }
     
 }
