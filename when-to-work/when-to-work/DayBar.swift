@@ -14,7 +14,7 @@ import SwiftyJSON
 class DayBar {
     
     var isLoaded = false
-    var timeFragments = [String:TimeFragment]()
+    var timeFragments = [String:(TimeFragment, SKShapeNode?)]() // the shape node is a visual representation of this time fragment
     
     func requestData() {
         let params = ["key"             : "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe",
@@ -44,19 +44,20 @@ class DayBar {
                                 //                                print(productivityScore)
                                 
                                 if self.timeFragments.index(forKey: timeStartedStr) == nil {
-                                    self.timeFragments[timeStartedStr] = TimeFragment(timeStamp: timeStartedStr)
+                                    self.timeFragments[timeStartedStr] = (TimeFragment(timeStamp: timeStartedStr), nil)
                                 }
-                                self.timeFragments[timeStartedStr]?.add(activity: activity, withTime: numberOfSeconds, withScore: productivityScore)
+                                self.timeFragments[timeStartedStr]?.0.add(activity: activity, withTime: numberOfSeconds, withScore: productivityScore)
                                 
                                 numOfRecords += 1
                             }
                             //                            print("--------------------------")
                             //                            print("Number of records = " + String(numOfRecords))
                             self.isLoaded = true
+                            
         }
     }
     
-    func drawBar() {
+    func addBarToScene() {
         
     }
     
