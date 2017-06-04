@@ -13,7 +13,7 @@ class DayBarListScene: SKScene{
     var daysLoaded = [DayBar]()
     
     override func didMove(to view: SKView) {
-        self.yScale = -1
+        //self.yScale = -1
         self.backgroundColor = NSColor(calibratedRed: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         
         let size = CGSize(width: 10, height: 10)
@@ -41,7 +41,10 @@ class DayBarListScene: SKScene{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        for index in 0...6 {
+        let startYPos = (self.scene?.size.height)! - 20
+        let numOfDaysToLoad = 28
+        
+        for index in 0..<numOfDaysToLoad {
             let currentBarDate = calendar.date(byAdding: .day, value: -index, to: date)
             let dayStr = dateFormatter.string(from: currentBarDate!)
             //components = calendar.dateComponents([.weekday, .day, .month, .year], from: currentBarDate!)
@@ -62,7 +65,7 @@ class DayBarListScene: SKScene{
             let text = SKLabelNode(fontNamed: "Avenir Next")
             text.text = "\(weekdayStr) \(dayStr)"
             text.fontSize = 10
-            text.position = CGPoint(x: 108, y: 63 + index*20)
+            text.position = CGPoint(x: 108, y: Int(startYPos) - index*20)
             //text.horizontalAlignmentMode = .Left
             text.horizontalAlignmentMode = .right
             text.verticalAlignmentMode = .bottom

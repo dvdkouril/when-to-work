@@ -83,7 +83,9 @@ class DayBar {
         //var xOffset : CGFloat = (800 - 576) / 2
         let xOffset : CGFloat = 120
         // background rect (untracked time)
-        drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(20 + self.dayIndex! * 20)), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
+        let startYPos = (self.scene?.size.height)! - 20
+        
+        drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(startYPos - CGFloat(self.dayIndex! * 20))), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
         
         if timeFragments.isEmpty {
             return
@@ -148,7 +150,7 @@ class DayBar {
                     color = SKColor.magenta
                 }
                 
-                self.drawRectAt(scene: scene!, pos: CGPoint(x: CGFloat(xOffset + CGFloat(i) * size.width), y: CGFloat(20 + self.dayIndex! * 20)), size: size, col: color)
+                self.drawRectAt(scene: scene!, pos: CGPoint(x: CGFloat(xOffset + CGFloat(i) * size.width), y: CGFloat(startYPos - CGFloat(self.dayIndex! * 20))), size: size, col: color)
             }
             
             iteratingDate = calendar.date(byAdding: .second, value: 300, to: iteratingDate!) // jump 5 minutes (300 seconds) in time

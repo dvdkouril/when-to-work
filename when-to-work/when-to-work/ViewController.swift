@@ -19,7 +19,7 @@ class ViewController: NSViewController {
 
 //        let scene = DayBarListScene()
         let scene = DayBarListScene(size: view.frame.size)
-        //scene.yScale = -1
+        scene.scaleMode = .fill
         if let view = self.skView {
             view.presentScene(scene)
             // 63, 171, 122
