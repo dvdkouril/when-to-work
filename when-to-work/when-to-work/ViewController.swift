@@ -21,7 +21,9 @@ class ViewController: NSViewController {
         if let view = self.skView {
             view.presentScene(scene)
             // 63, 171, 122
-            scene.backgroundColor = NSColor(calibratedRed: 63.0 / 255.0, green: 171.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
+            //scene.backgroundColor = NSColor(calibratedRed: 63.0 / 255.0, green: 171.0 / 255.0, blue: 122.0 / 255.0, alpha: 1.0)
+            view.showsFPS = true
+            view.showsNodeCount = true
         }
     }
 }
