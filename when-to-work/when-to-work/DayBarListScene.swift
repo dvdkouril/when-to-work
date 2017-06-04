@@ -13,9 +13,10 @@ class DayBarListScene: SKScene{
     var daysLoaded = [DayBar]()
     
     override func didMove(to view: SKView) {
-        self.backgroundColor = .brown
+        self.yScale = -1
+        self.backgroundColor = NSColor(calibratedRed: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         
-        let size = CGSize(width: 0.1, height: 0.1)
+        let size = CGSize(width: 10, height: 10)
         let rect = SKShapeNode(rectOf: size)
         rect.fillColor = .white
         rect.position = CGPoint(x: 0, y: 0)
@@ -42,8 +43,10 @@ class DayBarListScene: SKScene{
         
         for index in 0...6 {
             let currentBarDate = calendar.date(byAdding: .day, value: -index, to: date)
-            components = calendar.dateComponents([.weekday, .day, .month, .year], from: currentBarDate!)
-            let dayStr = "\(String(describing: components.year))-\(String(describing: components.month))-\(String(describing: components.day))"
+            let dayStr = dateFormatter.string(from: currentBarDate!)
+            //components = calendar.dateComponents([.weekday, .day, .month, .year], from: currentBarDate!)
+            //let dayStr = "\(String(describing: components.year))-\(String(describing: components.month))-\(String(describing: components.day))"
+            //let dayStr = "\(components.year!)-\(components.month!)-\(components.day!)"
             
             //let dayDataBar = DayBar(day: dayStr, scene: self, yPos: offset + index*20, dayIndex: index)
             let dayBar = DayBar(day: dayStr, scene: self, index: index)

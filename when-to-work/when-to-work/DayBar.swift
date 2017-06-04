@@ -35,11 +35,12 @@ class DayBar {
     }
     
     func requestData() {
+        print("DayBar \(self.dayStamp!) loading started...")
         let params = ["key"             : "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe",
                       "format"          : "json",
                       "perspective"     : "interval",
-                      "restrict_begin"  : "2017-05-01",
-                      "restrict_end"    : "2017-05-30",
+                      "restrict_begin"  : dayStamp!,
+                      "restrict_end"    : dayStamp!,
                       "resolution_time" : "minute"]
         
         Alamofire.request("https://www.rescuetime.com/anapi/data",
@@ -70,6 +71,7 @@ class DayBar {
                             }
                             //                            print("--------------------------")
                             //                            print("Number of records = " + String(numOfRecords))
+                            print("DayBar \(self.dayStamp!) loading finished...\(String(numOfRecords)) time fragments downloaded")
                             self.isLoaded = true
                             
                             self.addBarToScene()
@@ -77,6 +79,12 @@ class DayBar {
     }
     
     func addBarToScene() {
+        
+        //var xOffset : CGFloat = (800 - 576) / 2
+        let xOffset : CGFloat = 120
+        // background rect (untracked time)
+        drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(20 + self.dayIndex! * 20)), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
+        
         if timeFragments.isEmpty {
             return
         }
@@ -92,30 +100,19 @@ class DayBar {
         
         let calendar = Calendar.current
         var components = calendar.dateComponents([.day, .month, .year, .hour, .minute, .second], from: dayDate!)
-        //let components = calendar.components([.day, .month, .year, .hour, .minute, .second], fromDate: dayDate!)
+        
         // reseting the time to start of the day
         components.hour = 0
         components.minute = 0
         components.second = 0
-        //var iteratingDate = calendar.dateFromComponents(components)
         var iteratingDate = calendar.date(from: components)
-        //print("after reseting: \(dateFormatter.stringFromDate(iteratingDate!))")
         
         components.hour = 23
         components.minute = 55
         components.second = 0
-        //let endDate = calendar.dateFromComponents(components)
         let endDate = calendar.date(from: components)
-        //print("last date to check: \(dateFormatter.stringFromDate(endDate!))")
-        
-        //print("Number of fragments: \(fragsDir.count)")
         
         var i = 0
-        //var xOffset : CGFloat = (800 - 576) / 2
-        let xOffset : CGFloat = 120
-        
-        // background rect (untracked time)
-        drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(self.dayIndex! * 20)), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
         
         while !(iteratingDate! == endDate!) { // bug: doesn't draw the last 5-min
             let itDateString = dateFormatter.string(from: iteratingDate!)
@@ -151,17 +148,15 @@ class DayBar {
                     color = SKColor.magenta
                 }
                 
-                self.drawRectAt(scene: scene!, pos: CGPoint(x: CGFloat(xOffset + CGFloat(i) * size.width), y: CGFloat(self.dayIndex! * 20)), size: size, col: color)
+                self.drawRectAt(scene: scene!, pos: CGPoint(x: CGFloat(xOffset + CGFloat(i) * size.width), y: CGFloat(20 + self.dayIndex! * 20)), size: size, col: color)
             }
             
-            iteratingDate = calendar.date(byAdding: .second, value: 300, to: iteratingDate!)
-//            iteratingDate = iteratingDate?.dateByAddingTimeInterval(300) // jump 5 minutes (300 seconds) in time
+            iteratingDate = calendar.date(byAdding: .second, value: 300, to: iteratingDate!) // jump 5 minutes (300 seconds) in time
             i += 1
         }
     }
     
     func drawRectAt(scene : SKScene, pos : CGPoint, size : CGSize, col : SKColor) {
-        //let rect = SKShapeNode(rectOfSize: size)
         let rect = SKShapeNode(rectOf: size)
         rect.fillColor = col
         rect.position = CGPoint(x: pos.x + size.width / 2, y: pos.y + size.height / 2)

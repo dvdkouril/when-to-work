@@ -17,7 +17,9 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let scene = DayBarListScene()
+//        let scene = DayBarListScene()
+        let scene = DayBarListScene(size: view.frame.size)
+        //scene.yScale = -1
         if let view = self.skView {
             view.presentScene(scene)
             // 63, 171, 122
