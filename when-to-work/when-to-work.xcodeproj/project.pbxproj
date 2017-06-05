@@ -13,6 +13,8 @@
 		6F3DC2521EDE7BB100F5BBE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F3DC2511EDE7BB100F5BBE6 /* Assets.xcassets */; };
 		6F3DC2551EDE7BB100F5BBE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6F3DC2531EDE7BB100F5BBE6 /* Main.storyboard */; };
 		6F6411951EE31BBD00F7AD15 /* TimeFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6411941EE31BBD00F7AD15 /* TimeFragment.swift */; };
+		6F6411971EE5472500F7AD15 /* SubmitKeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6411961EE5472500F7AD15 /* SubmitKeyViewController.swift */; };
+		6F6411991EE55AD500F7AD15 /* DayBarVisWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */; };
 		6F6D489C1EDFE38D007E6E2B /* DayBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D489B1EDFE38D007E6E2B /* DayBar.swift */; };
 		6F6D48A01EE2F4BE007E6E2B /* DayBarListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */; };
 /* End PBXBuildFile section */
@@ -25,6 +27,8 @@
 		6F3DC2541EDE7BB100F5BBE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6F3DC2561EDE7BB100F5BBE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6F6411941EE31BBD00F7AD15 /* TimeFragment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFragment.swift; sourceTree = "<group>"; };
+		6F6411961EE5472500F7AD15 /* SubmitKeyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubmitKeyViewController.swift; sourceTree = "<group>"; };
+		6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBarVisWindowController.swift; sourceTree = "<group>"; };
 		6F6D489B1EDFE38D007E6E2B /* DayBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBar.swift; sourceTree = "<group>"; };
 		6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBarListScene.swift; sourceTree = "<group>"; };
 		B79989F54F136998B74144CD /* Pods_when_to_work.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_when_to_work.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,12 +71,14 @@
 			children = (
 				6F3DC2471EDE7BB100F5BBE6 /* AppDelegate.swift */,
 				6F3DC24F1EDE7BB100F5BBE6 /* ViewController.swift */,
+				6F6411961EE5472500F7AD15 /* SubmitKeyViewController.swift */,
 				6F3DC2511EDE7BB100F5BBE6 /* Assets.xcassets */,
 				6F3DC2531EDE7BB100F5BBE6 /* Main.storyboard */,
 				6F3DC2561EDE7BB100F5BBE6 /* Info.plist */,
 				6F6D489B1EDFE38D007E6E2B /* DayBar.swift */,
 				6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */,
 				6F6411941EE31BBD00F7AD15 /* TimeFragment.swift */,
+				6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */,
 			);
 			path = "when-to-work";
 			sourceTree = "<group>";
@@ -218,8 +224,10 @@
 			files = (
 				6F6411951EE31BBD00F7AD15 /* TimeFragment.swift in Sources */,
 				6F3DC2501EDE7BB100F5BBE6 /* ViewController.swift in Sources */,
+				6F6411991EE55AD500F7AD15 /* DayBarVisWindowController.swift in Sources */,
 				6F6D489C1EDFE38D007E6E2B /* DayBar.swift in Sources */,
 				6F3DC2481EDE7BB100F5BBE6 /* AppDelegate.swift in Sources */,
+				6F6411971EE5472500F7AD15 /* SubmitKeyViewController.swift in Sources */,
 				6F6D48A01EE2F4BE007E6E2B /* DayBarListScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

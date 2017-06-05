@@ -83,7 +83,7 @@ class DayBar {
         //var xOffset : CGFloat = (800 - 576) / 2
         let xOffset : CGFloat = 120
         // background rect (untracked time)
-        let startYPos = (self.scene?.size.height)! - 20
+        let startYPos = (self.scene?.size.height)! - 40
         
         drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(startYPos - CGFloat(self.dayIndex! * 20))), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
         

@@ -11,18 +11,10 @@ import SpriteKit
 class DayBarListScene: SKScene{
     
     var daysLoaded = [DayBar]()
+    var apiKey: String? = nil
     
     override func didMove(to view: SKView) {
-        //self.yScale = -1
         self.backgroundColor = NSColor(calibratedRed: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
-        
-        let size = CGSize(width: 10, height: 10)
-        let rect = SKShapeNode(rectOf: size)
-        rect.fillColor = .white
-        rect.position = CGPoint(x: 0, y: 0)
-        rect.lineWidth = 0
-        
-        self.addChild(rect)
         
         populateSceneWithDayBars()
     }
@@ -36,22 +28,16 @@ class DayBarListScene: SKScene{
     func populateSceneWithDayBars() {
         let calendar = NSCalendar.current
         let date = Date()
-        var components = calendar.dateComponents([.weekday, .day, .month, .year], from: date)
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
         
-        let startYPos = (self.scene?.size.height)! - 20
+        let startYPos = (self.scene?.size.height)! - 40
         let numOfDaysToLoad = 28
         
         for index in 0..<numOfDaysToLoad {
             let currentBarDate = calendar.date(byAdding: .day, value: -index, to: date)
             let dayStr = dateFormatter.string(from: currentBarDate!)
-            //components = calendar.dateComponents([.weekday, .day, .month, .year], from: currentBarDate!)
-            //let dayStr = "\(String(describing: components.year))-\(String(describing: components.month))-\(String(describing: components.day))"
-            //let dayStr = "\(components.year!)-\(components.month!)-\(components.day!)"
-            
-            //let dayDataBar = DayBar(day: dayStr, scene: self, yPos: offset + index*20, dayIndex: index)
             let dayBar = DayBar(day: dayStr, scene: self, index: index)
             dayBar.requestData()
             
