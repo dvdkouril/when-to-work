@@ -16,7 +16,7 @@ class DayBarListScene: SKScene{
     override func didMove(to view: SKView) {
         self.backgroundColor = NSColor(calibratedRed: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         
-        populateSceneWithDayBars()
+        //populateSceneWithDayBars()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -38,7 +38,8 @@ class DayBarListScene: SKScene{
         for index in 0..<numOfDaysToLoad {
             let currentBarDate = calendar.date(byAdding: .day, value: -index, to: date)
             let dayStr = dateFormatter.string(from: currentBarDate!)
-            let dayBar = DayBar(day: dayStr, scene: self, index: index)
+            //let dayBar = DayBar(day: dayStr, scene: self, index: index)
+            let dayBar = DayBar(day: dayStr, apiKey: self.apiKey!, scene: self, index: index)
             dayBar.requestData()
             
             //let weekdayStr = getWeekdayString(weekday)

@@ -17,6 +17,7 @@ class DayBar {
     var isLoaded: Bool
     var dayIndex: Int?
     var scene: SKScene?
+    var apiKey: String?
     
     var timeFragments = [String:(TimeFragment, SKShapeNode?)]() // the shape node is a visual representation of this time fragment
     
@@ -25,18 +26,20 @@ class DayBar {
         isLoaded = false
         dayIndex = nil
         scene = nil
+        apiKey = nil
     }
     
-    init(day : String, scene : SKScene, index : Int) {
+    init(day : String, apiKey : String, scene : SKScene, index : Int) {
         isLoaded = false
         dayStamp = day
         dayIndex = index
         self.scene = scene
+        self.apiKey = apiKey
     }
     
     func requestData() {
         print("DayBar \(self.dayStamp!) loading started...")
-        let params = ["key"             : "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe",
+        let params = ["key"             : apiKey/*"B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe"*/,
                       "format"          : "json",
                       "perspective"     : "interval",
                       "restrict_begin"  : dayStamp!,

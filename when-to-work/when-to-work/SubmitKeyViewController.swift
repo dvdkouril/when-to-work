@@ -22,6 +22,9 @@ class SubmitKeyViewController: NSViewController {
         let visWindowController = segue.destinationController as! NSWindowController
         let visualizationController = visWindowController.contentViewController as! ViewController
         visualizationController.apiKey = apiKey
+        let sc = visualizationController.skView.scene as? DayBarListScene
+        sc?.apiKey = apiKey
+        sc?.populateSceneWithDayBars()
     }
     
 //    @IBAction func SubmitButtomPushed(_ sender: Any) {
