@@ -39,7 +39,8 @@ class DayBar {
     
     func requestData() {
         print("DayBar \(self.dayStamp!) loading started...")
-        let params = ["key"             : apiKey/*"B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe"*/,
+        //let params = ["key"             : "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe",
+        let params = ["key"             : self.apiKey!,
                       "format"          : "json",
                       "perspective"     : "interval",
                       "restrict_begin"  : dayStamp!,
