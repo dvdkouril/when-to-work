@@ -701,11 +701,11 @@
             <objects>
                 <viewController id="SYZ-0g-3Vi" customClass="SubmitKeyViewController" customModule="when_to_work" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="MyW-my-8Zj">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="250"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bNn-E4-grZ">
-                                <rect key="frame" x="59" y="123" width="362" height="22"/>
+                                <rect key="frame" x="59" y="113" width="362" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="XWv-6M-AZX">
                                     <font key="font" metaFont="system"/>
@@ -714,7 +714,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVG-oq-3TY">
-                                <rect key="frame" x="124" y="159" width="221" height="17"/>
+                                <rect key="frame" x="124" y="149" width="221" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Copy you RescueTime API key here:" id="13B-VB-zbT">
                                     <font key="font" metaFont="system"/>
@@ -723,7 +723,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-8R-SZu">
-                                <rect key="frame" x="193" y="87" width="83" height="32"/>
+                                <rect key="frame" x="193" y="77" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H1C-kN-zbK">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -741,7 +741,7 @@
                 </viewController>
                 <customObject id="WDt-N1-s6O" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582" y="259"/>
+            <point key="canvasLocation" x="1582" y="246"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

@@ -51,7 +51,7 @@ class DayBar {
                           parameters: params).responseJSON {
                             response in
                             
-                            let json = JSON(response.result.value)
+                            let json = JSON(response.result.value!)
                             
                             var numOfRecords = 0
                             for record in json["rows"] {

@@ -12,7 +12,6 @@ import Cocoa
 class SubmitKeyViewController: NSViewController {
     
     @IBOutlet weak var keyTextField: NSTextField!
-    var visualizationWindow: NSWindowController!
     
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -26,18 +25,4 @@ class SubmitKeyViewController: NSViewController {
         sc?.apiKey = apiKey
         sc?.populateSceneWithDayBars()
     }
-    
-//    @IBAction func SubmitButtomPushed(_ sender: Any) {
-//        
-//        let apiKeyStr = keyTextField.stringValue
-//        print("Submit key button pushed. Value = \(apiKeyStr)")
-//        
-//        let newWin = NSWindow()
-//        //visualizationWindow = NSWindowController()
-//        visualizationWindow = NSWindowController(window: newWin)
-////        visualizationWindow.contentViewController = ViewController()
-//        visualizationWindow.window?.contentViewController = ViewController()
-//        visualizationWindow.showWindow(nil)
-//        //visualizationWindow.window?.makeMain()
-//    }
 }

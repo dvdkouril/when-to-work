@@ -51,9 +51,8 @@ class DayBarListScene: SKScene{
             //drawText(dayStr, pos: CGPoint(x: 77, y: 59 + index*20), size: 10)
             let text = SKLabelNode(fontNamed: "Avenir Next")
             text.text = "\(weekdayStr) \(dayStr)"
-            text.fontSize = 10
+            text.fontSize = 12
             text.position = CGPoint(x: 108, y: Int(startYPos) - index*20)
-            //text.horizontalAlignmentMode = .Left
             text.horizontalAlignmentMode = .right
             text.verticalAlignmentMode = .bottom
             self.addChild(text)
