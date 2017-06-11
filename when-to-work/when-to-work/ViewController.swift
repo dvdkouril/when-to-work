@@ -23,8 +23,8 @@ class ViewController: NSViewController {
         scene.scaleMode = .fill
         if let view = self.skView {
             view.presentScene(scene)
-            view.showsFPS = true
-            view.showsNodeCount = true
+//            view.showsFPS = true
+//            view.showsNodeCount = true
         }
     }
 }
