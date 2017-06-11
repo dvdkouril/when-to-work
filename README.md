@@ -4,4 +4,4 @@ I've built a RescueTime visualization some time ago. The idea was to look for pa
 This is an attempt to revive this project and provide it as a application that other people will be able to use as well.
 
 ![Current state screenshot]
-(screenshot.png)
+(/screenshot.png)
