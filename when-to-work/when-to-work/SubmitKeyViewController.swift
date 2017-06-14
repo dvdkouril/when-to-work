@@ -13,12 +13,18 @@ class SubmitKeyViewController: NSViewController {
     
     @IBOutlet weak var keyTextField: NSTextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.window?.setFrame(NSRect(x: 0, y: 0, width: 480, height: 250), display: true, animate: true)
+    }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         let apiKey = keyTextField.stringValue
         print("Preparing for segue: apiKey = \(apiKey)")
         
         let visWindowController = segue.destinationController as! NSWindowController
+//        visWindowController.window?.setFrame(NSRect(x: 0, y: 0, width: 480, height: 250), display: true, animate: true)
         let visualizationController = visWindowController.contentViewController as! ViewController
         visualizationController.apiKey = apiKey
         let sc = visualizationController.skView.scene as? DayBarListScene
