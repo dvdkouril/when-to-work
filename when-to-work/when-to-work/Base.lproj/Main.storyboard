@@ -723,7 +723,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTL-8R-SZu">
-                                <rect key="frame" x="193" y="77" width="83" height="32"/>
+                                <rect key="frame" x="154" y="77" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Submit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="H1C-kN-zbK">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -731,6 +731,17 @@
                                 </buttonCell>
                                 <connections>
                                     <segue destination="B8D-0N-5wS" kind="show" id="xvR-bl-YjM"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLr-1L-Jrb">
+                                <rect key="frame" x="230" y="77" width="97" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Use Mine" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fui-sf-d9a">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="B8D-0N-5wS" kind="show" identifier="UseMineApiKey" id="DyO-Ob-WBl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -760,4 +771,7 @@
             <point key="canvasLocation" x="1582" y="1719"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="xvR-bl-YjM"/>
+    </inferredMetricsTieBreakers>
 </document>

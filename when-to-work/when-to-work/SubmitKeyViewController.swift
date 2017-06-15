@@ -20,7 +20,12 @@ class SubmitKeyViewController: NSViewController {
     }
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        let apiKey = keyTextField.stringValue
+        var apiKey = ""
+        if segue.identifier == "UseMineApiKey" {
+            apiKey = "B63oAq3AYNvn6IxOqvGzGE3CmmVFsxID3OCPs1Pe"
+        } else {
+            apiKey = keyTextField.stringValue
+        }
         print("Preparing for segue: apiKey = \(apiKey)")
         
         let visWindowController = segue.destinationController as! NSWindowController
