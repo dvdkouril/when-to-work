@@ -17,6 +17,7 @@
 		6F6411991EE55AD500F7AD15 /* DayBarVisWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */; };
 		6F6D489C1EDFE38D007E6E2B /* DayBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D489B1EDFE38D007E6E2B /* DayBar.swift */; };
 		6F6D48A01EE2F4BE007E6E2B /* DayBarListScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */; };
+		6FBE9AAA1F1A1C6A00B933BF /* ArrowNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FBE9AA91F1A1C6A00B933BF /* ArrowNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBarVisWindowController.swift; sourceTree = "<group>"; };
 		6F6D489B1EDFE38D007E6E2B /* DayBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBar.swift; sourceTree = "<group>"; };
 		6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayBarListScene.swift; sourceTree = "<group>"; };
+		6FBE9AA91F1A1C6A00B933BF /* ArrowNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrowNode.swift; sourceTree = "<group>"; };
 		B79989F54F136998B74144CD /* Pods_when_to_work.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_when_to_work.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF8FC46BAB63FF373A68126 /* Pods-when-to-work.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-when-to-work.debug.xcconfig"; path = "Pods/Target Support Files/Pods-when-to-work/Pods-when-to-work.debug.xcconfig"; sourceTree = "<group>"; };
 		DB6F1EDABF605FEC02F1BCF4 /* Pods-when-to-work.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-when-to-work.release.xcconfig"; path = "Pods/Target Support Files/Pods-when-to-work/Pods-when-to-work.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				6F6D489F1EE2F4BE007E6E2B /* DayBarListScene.swift */,
 				6F6411941EE31BBD00F7AD15 /* TimeFragment.swift */,
 				6F6411981EE55AD500F7AD15 /* DayBarVisWindowController.swift */,
+				6FBE9AA91F1A1C6A00B933BF /* ArrowNode.swift */,
 			);
 			path = "when-to-work";
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				6F6411951EE31BBD00F7AD15 /* TimeFragment.swift in Sources */,
 				6F3DC2501EDE7BB100F5BBE6 /* ViewController.swift in Sources */,
 				6F6411991EE55AD500F7AD15 /* DayBarVisWindowController.swift in Sources */,
+				6FBE9AAA1F1A1C6A00B933BF /* ArrowNode.swift in Sources */,
 				6F6D489C1EDFE38D007E6E2B /* DayBar.swift in Sources */,
 				6F3DC2481EDE7BB100F5BBE6 /* AppDelegate.swift in Sources */,
 				6F6411971EE5472500F7AD15 /* SubmitKeyViewController.swift in Sources */,

@@ -18,6 +18,7 @@ class DayBar {
     var dayIndex: Int?
     var scene: SKScene?
     var apiKey: String?
+    var offsetFromTop: CGFloat?
     
     var timeFragments = [String:(TimeFragment, SKShapeNode?)]() // the shape node is a visual representation of this time fragment
     
@@ -87,7 +88,7 @@ class DayBar {
         //var xOffset : CGFloat = (800 - 576) / 2
         let xOffset : CGFloat = 120
         // background rect (untracked time)
-        let startYPos = (self.scene?.size.height)! - 40
+        let startYPos = (self.scene?.size.height)! - offsetFromTop!
         
         drawRectAt(scene: self.scene!, pos: CGPoint(x: xOffset, y: CGFloat(startYPos - CGFloat(self.dayIndex! * 20))), size: CGSize(width: 576, height: 10), col: SKColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0))
         
@@ -162,6 +163,7 @@ class DayBar {
         }
     }
     
+    //~ pos is left bottom corner
     func drawRectAt(scene : SKScene, pos : CGPoint, size : CGSize, col : SKColor) {
         let rect = SKShapeNode(rectOf: size)
         rect.fillColor = col

@@ -12,11 +12,14 @@ class DayBarListScene: SKScene{
     
     var daysLoaded = [DayBar]()
     var apiKey: String? = nil
-    let numOfDaysToLoad = 28
+    let numOfDaysToLoad = 7
+    var offsetFromTop : CGFloat?
+    var showingWeek = 0
     
     override func didMove(to view: SKView) {
         self.backgroundColor = NSColor(calibratedRed: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
         
+        self.isUserInteractionEnabled = true
         //populateSceneWithDayBars()
     }
     
@@ -26,30 +29,74 @@ class DayBarListScene: SKScene{
         
     }
     
-    func populateSceneWithDayBars() {
+//    override func touchesBegan(with event: NSEvent) {
+//        print("touches")
+//    }
+    override func mouseDown(with event: NSEvent) {
+        print("touch")
+        
+        let touchedNodes = self.nodes(at: event.location(in: self))
+        if touchedNodes.count <= 0 {
+            return
+        }
+        let touchedNode = touchedNodes[0]
+        
+        if touchedNode.name == "Left Arrow" {
+            self.removeAllChildren()
+            showingWeek += 1
+        }
+        
+        populateSceneWithDayBars(weekIndex: showingWeek)
+        //print(touchedNode.name)
+    }
+    
+    func populateSceneWithDayBars(weekIndex : Int = 0) {
         let calendar = NSCalendar.current
-        let date = Date()
+        //let firstWeekday = calendar.firstWeekday
+        let today = Date()
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
-        let startYPos = (self.scene?.size.height)! - 40
-        //let numOfDaysToLoad = 28
+        //~ Title
+        let titlePos = CGPoint(x: 50, y: (self.scene?.size.height)! - 50)
+        drawText(textToDraw: "Week X of the Year 2017", pos: titlePos, size: 30)
         
+        //~ Arrows
+        let leftArrow = ArrowNode(rectOf: CGSize(width: 25, height: 25))
+        leftArrow.isUserInteractionEnabled = false
+        leftArrow.fillColor = .white
+        leftArrow.position = CGPoint(x: 10, y: (self.scene?.size.height)! - 50)
+        leftArrow.name = "Left Arrow"
+        self.addChild(leftArrow)
+//        let leftArrow = SKShapeNode(rectOf: CGSize(width: 25, height: 25))
+//        leftArrow.fillColor = .white
+//        leftArrow.position = CGPoint(x: 10, y: (self.scene?.size.height)! - 50)
+//        self.addChild(leftArrow)
+        
+        //~ Find the latest Monday
+        var components = DateComponents()
+        components.weekday = 3
+        let lastMonday = calendar.nextDate(after: today, matching: components, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward)
+        
+        let mondayOfWeekWeWant = calendar.date(byAdding: .day, value: -7 * weekIndex, to: lastMonday!)
+        
+        self.offsetFromTop = 100
+        let startYPos = (self.scene?.size.height)! - offsetFromTop!
         for index in 0..<numOfDaysToLoad {
-            let currentBarDate = calendar.date(byAdding: .day, value: -index, to: date)
+            let currentBarDate = calendar.date(byAdding: .day, value: index, to: mondayOfWeekWeWant!)
             let dayStr = dateFormatter.string(from: currentBarDate!)
-            //let dayBar = DayBar(day: dayStr, scene: self, index: index)
             let dayBar = DayBar(day: dayStr, apiKey: self.apiKey!, scene: self, index: index)
+            dayBar.offsetFromTop = offsetFromTop
             dayBar.requestData()
             
-            //let weekdayStr = getWeekdayString(weekday)
+            //~ title
             let weekdayFormatter = DateFormatter()
             weekdayFormatter.dateFormat = "EEE"
+            weekdayFormatter.timeZone = TimeZone(abbreviation: "UTC")
             let weekdayStr = weekdayFormatter.string(from: currentBarDate!)
             
-            // day title
-            //drawText(dayStr, pos: CGPoint(x: 77, y: 59 + index*20), size: 10)
             let text = SKLabelNode(fontNamed: "Avenir Next")
             text.text = "\(weekdayStr) \(dayStr)"
             text.fontSize = 12
@@ -57,14 +104,9 @@ class DayBarListScene: SKScene{
             text.horizontalAlignmentMode = .right
             text.verticalAlignmentMode = .bottom
             self.addChild(text)
+
         }
         
-//        let line = SKShapeNode(rect: CGRect(x: 300, y: 100, width: 1, height: 500))
-//        line.zPosition = 1.0
-//        line.fillColor = SKColor(calibratedRed: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-//        line.lineWidth = 0
-//        
-//        self.addChild(line)
         drawTimeline()
     }
     
@@ -78,6 +120,8 @@ class DayBarListScene: SKScene{
         self.addChild(text)
     }
     
+    
+    //~ pos is left bottom corner
     func drawRectAt(scene : SKScene, pos : CGPoint, size : CGSize, col : SKColor, zPosition: CGFloat = 0.0) {
         let rect = SKShapeNode(rectOf: size)
         rect.fillColor = col
@@ -91,9 +135,9 @@ class DayBarListScene: SKScene{
     func drawTimeline() {
         
         //let startYPos = (self.scene?.size.height)! - 40
-        let textYPos = (self.scene?.size.height)! - 20
-        let startYPos = 20
+        let textYPos = (self.scene?.size.height)! - self.offsetFromTop! + 20
         let barHeight = CGFloat(self.numOfDaysToLoad * 20) - 10
+        let startYPos = (self.scene?.size.height)! - self.offsetFromTop! - barHeight
         
         // 0:00 line
         drawRectAt(scene: self,
