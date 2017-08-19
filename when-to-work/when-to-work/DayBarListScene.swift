@@ -44,10 +44,12 @@ class DayBarListScene: SKScene{
         if touchedNode.name == "Left Arrow" {
             self.removeAllChildren()
             showingWeek += 1
+        } else if touchedNode.name == "Right Arrow" {
+            self.removeAllChildren()
+            showingWeek -= 1
         }
         
         populateSceneWithDayBars(weekIndex: showingWeek)
-        //print(touchedNode.name)
     }
     
     func populateSceneWithDayBars(weekIndex : Int = 0) {
@@ -59,21 +61,27 @@ class DayBarListScene: SKScene{
         dateFormatter.dateFormat = "YYYY-MM-dd"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         
-        //~ Title
-        let titlePos = CGPoint(x: 50, y: (self.scene?.size.height)! - 50)
-        drawText(textToDraw: "Week X of the Year 2017", pos: titlePos, size: 30)
-        
         //~ Arrows
-        let leftArrow = ArrowNode(rectOf: CGSize(width: 25, height: 25))
-        leftArrow.isUserInteractionEnabled = false
-        leftArrow.fillColor = .white
-        leftArrow.position = CGPoint(x: 10, y: (self.scene?.size.height)! - 50)
+//        let a = SKSpriteNode(imageNamed: "arrow-left")
+//        a.position = CGPoint(x: 100, y: 100)
+//        self.addChild(a);
+        
+        //let leftArrow = ArrowNode(rectOf: CGSize(width: 25, height: 25))
+        let leftArrow = ArrowNode(imageNamed: "arrow-left-white")
+        leftArrow.size = CGSize(width: 25, height: 25)
+        //leftArrow.fillColor = .white
+        leftArrow.position = CGPoint(x: 25, y: (self.scene?.size.height)! - 38)
         leftArrow.name = "Left Arrow"
         self.addChild(leftArrow)
-//        let leftArrow = SKShapeNode(rectOf: CGSize(width: 25, height: 25))
-//        leftArrow.fillColor = .white
-//        leftArrow.position = CGPoint(x: 10, y: (self.scene?.size.height)! - 50)
-//        self.addChild(leftArrow)
+        
+        //let rightArrow = ArrowNode(rectOf: CGSize(width: 25, height: 25))
+        let rightArrow = ArrowNode(imageNamed: "arrow-right-white")
+        rightArrow.size = CGSize(width: 25, height: 25)
+        //rightArrow.fillColor = .white
+        rightArrow.position = CGPoint(x: 420, y: (self.scene?.size.height)! - 38)
+        rightArrow.name = "Right Arrow"
+        self.addChild(rightArrow)
+        
         
         //~ Find the latest Monday
         var components = DateComponents()
@@ -81,6 +89,12 @@ class DayBarListScene: SKScene{
         let lastMonday = calendar.nextDate(after: today, matching: components, matchingPolicy: .nextTime, repeatedTimePolicy: .first, direction: .backward)
         
         let mondayOfWeekWeWant = calendar.date(byAdding: .day, value: -7 * weekIndex, to: lastMonday!)
+        let weekOfYear = calendar.component(.weekOfYear, from: mondayOfWeekWeWant!)
+        
+        //~ Title
+        let titlePos = CGPoint(x: 50, y: (self.scene?.size.height)! - 50)
+        drawText(textToDraw: "Week " + String(weekOfYear) + " of the Year 2017", pos: titlePos, size: 30)
+
         
         self.offsetFromTop = 100
         let startYPos = (self.scene?.size.height)! - offsetFromTop!

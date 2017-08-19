@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class ArrowNode : SKShapeNode {
+class ArrowNode : SKSpriteNode {
         
     override func touchesBegan(with event: NSEvent) {
         super.touchesBegan(with: event)
