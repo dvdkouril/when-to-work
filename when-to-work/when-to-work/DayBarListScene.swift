@@ -151,7 +151,7 @@ class DayBarListScene: SKScene{
         //let startYPos = (self.scene?.size.height)! - 40
         let textYPos = (self.scene?.size.height)! - self.offsetFromTop! + 20
         let barHeight = CGFloat(self.numOfDaysToLoad * 20) - 10
-        let startYPos = (self.scene?.size.height)! - self.offsetFromTop! - barHeight
+        let startYPos = (self.scene?.size.height)! - self.offsetFromTop! - barHeight + 10
         
         // 0:00 line
         drawRectAt(scene: self,

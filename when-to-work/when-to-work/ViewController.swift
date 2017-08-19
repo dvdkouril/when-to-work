@@ -17,7 +17,11 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        //self.view.window?.setFrame(NSRect(x: 0, y: 0, width: 800, height: 300), display: true, animate: true)
+        self.view.setFrameSize(NSSize(width: 800, height: 270))
+        
         let scene = DayBarListScene(size: view.frame.size)
         scene.apiKey = self.apiKey
         scene.scaleMode = .fill
